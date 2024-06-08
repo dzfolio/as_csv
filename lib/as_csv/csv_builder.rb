@@ -15,14 +15,14 @@ module AsCSV
       rows.collect { |row| CSV.generate_line(row, **csv_options) }.join
     end
 
+    def headers
+      @headers ||= csv_hashes.collect(&:keys).flatten.uniq
+    end
+
     private
 
       def rows
         @rows ||= [headers] + data_rows
-      end
-
-      def headers
-        @headers ||= csv_hashes.collect(&:keys).flatten.uniq
       end
 
       def data_rows

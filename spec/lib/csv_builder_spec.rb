@@ -39,7 +39,7 @@ describe AsCSV::CSVBuilder do
       end
     end
 
-    context 'with hetreogenous records' do
+    context 'with heterogeneous records' do
       let(:records) do
         2.times.map do |i|
           double(:foo, :as_csv => {
